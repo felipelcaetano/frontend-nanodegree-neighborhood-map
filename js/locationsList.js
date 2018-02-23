@@ -99,11 +99,14 @@ function populateWindowByMarker(location) {
         clearInfowindow(activeInfowindow.marker);
     };
 
+    resetMarkersIcons();
+
     markers.forEach(function(marker, index) {
 
         if (marker.id === location.id) {
             var largeInfoWindow = new google.maps.InfoWindow();
 
+            marker.setIcon(hihgLightedIcon);
             populateInfoWindow(marker, largeInfoWindow);
 
             map.setCenter(location.location);
