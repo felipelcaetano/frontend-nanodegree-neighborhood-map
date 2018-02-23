@@ -1,0 +1,134 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.4em;
+  padding-left: 10px;
+  display: inline;
+}
+
+#options-menu {
+  top: 10px;
+  margin: 0 15px;
+  width: calc(100% - 30px);
+  z-index: 2;
+  border-radius: 4px 4px;
+}
+
+#options-menu a {
+  color: white;
+}
+
+#options-menu span {
+  margin-top: 7px;
+}
+
+#h1-div {
+  border-bottom: solid 1px #BBB;
+  box-shadow: 0px 6px 15px -5px rgba(0,0,0,0.75);
+}
+
+#h1-div a h1 {
+  text-decoration: none;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+#infowindow {
+  max-width: 260px;
+  font-size: 0.7em;
+}
+
+#infowindow  h1 {
+  font-size: 1em;
+}
+
+#infowindow  h2 {
+  font-size: 1em;
+}
+
+#infowindow  img:last-of-type {
+  padding-left: 20px;
+}
+
+.favoritos-div h2 {
+  display: inline-block;
+  font-size: 1em;
+}
+
+#locations-list-div {
+  max-height: 550px;
+  margin-top: 5px;
+  overflow-y: scroll;
+ }
+
+#locations-list-div hr {
+  border-color: #BBB;
+  margin: 3px auto;
+}
+
+#locations-list-div input {
+  border-radius: 3px 3px;
+  min-width: 99%;
+  font-size: 0.7em;
+  padding: 0 0 0 5px;
+}
+
+.list-group-item {
+  padding: 10px 0;
+  border: 0;
+  border-bottom: solid 1.5px #CCC;
+}
+
+.list-group-item:last-of-type {
+  border: 0;
+}
+
+.list-group-item div {
+  display: inline-block;
+  float: left;
+}
+
+.list-group-item h3, p, address {
+  font-size: 0.7em;
+}
+
+.list-group-item p {
+  margin-bottom: 5px;
+  float: left;
+}
+
+.list-group-item p q {
+  font-size: 0.8em;
+}
+
+.list-group-item img {
+  float: left;
+}
+
+#fs-description {
+  border: solid 1px #999;
+  border-radius: 10px 0 10px 0;
+}
+
+.fa-angle-down, .fa-angle-up {
+  margin-right: 10px;
+}
+
+.likes {
+  margin-top: 7px;
+  padding-left: 5px;
+  font-size: 0.8em;
+}
+
+#likes-text {
+  margin-top: 10px;
+  padding-left: 5px;
+  font-size: 0.6em;
+}
