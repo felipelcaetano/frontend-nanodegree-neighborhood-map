@@ -293,7 +293,7 @@ function populateInfoWindow(marker, infowindow) {
     infowindow.setContent(
       '<div id="infowindow">' +
         '<h1>' + marker.title + '</h1>' +
-        '<div id="infowindow-details" class="container"></div>'
+        '<div id="infowindow-details" class="container">' + spinner + '</div>'
     );
 
     //Obtem detalhes das locations

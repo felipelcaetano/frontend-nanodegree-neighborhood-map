@@ -58,7 +58,7 @@ function listLocations() {
                     '<div class="col-12 fs-description-div"><a ' +
                     'href="#locations-list-div" data-toggle="collapse">' +
                     '<p id="fs-description" class="col-12 float-left"><q></q>' +
-                    '</p></a></div>'
+                    '</p></a>' + spinner + '</div>'
                 );
 
                 $('#locations-list li:last-of-type').append(
@@ -166,6 +166,9 @@ function obterDadosFS(location) {
             $('[data-id="'+location.id+'"] .fs-description-div').hide();
             console.log('Code: ' + result.responseJSON.meta.code + '. Msg: ' +
                 result.responseJSON.meta.errorDetail);
+        },
+        complete: function(result) {
+            $('[data-id="'+location.id+'"] .fa-spinner').detach();
         }
     });
 

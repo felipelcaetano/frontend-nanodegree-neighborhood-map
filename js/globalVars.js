@@ -10,3 +10,5 @@ var activeInfowindow = {
 var activeMarker = null;
 var defaultIcon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
 var hihgLightedIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+
+var spinner = '<span class="fas fa-spinner fa-spin"></span>';
