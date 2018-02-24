@@ -13,5 +13,5 @@ var hihgLightedIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
 
 var spinner = '<span class="fas fa-spinner fa-spin"></span>';
 
-var fsClientId = 'I1BDRMAG35ELJQFQJWHGA50AEOTQSBQA2GC2UGJKM2530T0S';
-var fsClientSecret = 'KVUWRH2LHHPQWCAWEO4GYSDYSYD0CCSOFUXTINCSPAZW5JL0';
+var fsClientId = '';
+var fsClientSecret = '';
