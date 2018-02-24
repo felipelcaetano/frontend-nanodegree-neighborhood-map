@@ -123,8 +123,8 @@ function obterDadosFS(location) {
         url: "https://api.foursquare.com/v2/venues/" + location.fS.id,
         method: 'GET',
         data: {
-            client_id: 'I1BDRMAG35ELJQFQJWHGA50AEOTQSBQA2GC2UGJKM2530T0S',
-            client_secret: 'KVUWRH2LHHPQWCAWEO4GYSDYSYD0CCSOFUXTINCSPAZW5JL0',
+            client_id: fsClientId,
+            client_secret: fsClientSecret,
             v: '20182002'
         },
         success: function(result) {
