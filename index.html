@@ -1,49 +1,45 @@
 <!DOCTYPE html>
 <html lang=pt-br>
-<head>
-  <meta charset=utf-8>
-  <meta name=viewport content="width=device-width, initial-scale=1">
-  <meta name=description content="Lista com parques de Sao Paulo">
-  <meta name=author content="Felipe Caetano">
-  <title>Parques de Sao Paulo</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-  <link href="css/style.min.css" rel=stylesheet type="text/css">
-  <link href="css/min768px.min.css" rel=stylesheet type="text/css" media="screen and (min-width: 768px)">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</head>
+  <head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name=description content="Lista com parques de Sao Paulo">
+    <meta name=author content="Felipe Caetano">
+    <title>Parques de Sao Paulo</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="css/style.css" rel=stylesheet>
+    <link href="css/min768px.min.css" rel=stylesheet media="screen and (min-width: 768px)">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/knockout-min.js"></script>
+  </head>
 
-<body>
-  <div id='options-menu' class='position-absolute border-0 bg-success text-white row-fluid'>
-    <div id="h1-div" class="row-fluid">
-      <h1>Parques de São Paulo <span class="fas fa-tree fa-xs">
-      </span></h1>
-      <a href="#locations-list-div" data-toggle="collapse">
-        <span class="fas fa-angle-down float-right text-right"></span>
-      </a>
-    </div>
-    <div id="locations-list-div" class="row-fluid collapse">
-      <div class="col-12">
-        <input id="autocomplete-box" type="text" name="search" placeholder="Dgitie o nome do parque que procura..." class="col-11">
-        <hr>
+  <body>
+    <aside id='options-menu' class='position-absolute border-0 bg-success text-white row-fluid'>
+      <div id="h1-div" class="row-fluid">
+        <h1 class="col-7 col-md-8">Parques de São Paulo <span class="fas fa-tree fa-xs"></span></h1>
+        <button type="button" id="btn-reset" class="col-3 bg-success btn btn-success text-uppercase" data-bind="click: limparFiltro">Limpar Filtro</button>
+        <a href="#locations-list-div" data-toggle="collapse" class="col-1">
+          <span id="seta-menu" class="fas fa-angle-down text-right" data-bind="click: atualizarSetaMenu"></span>
+        </a>
       </div>
-      <div class="col-12 favoritos-div">
-        <span class="far fa-star"></span>
-        <h2>Mais procurados:</h2>
-        <hr>
+      <div id="locations-list-div" class="row-fluid collapse">
+        <div class="col-12 favoritos-div">
+        </div>
+        <div class="col-12">
+          <ul id="locations-list" class="list-group">
+          </ul>
+        </div>
       </div>
-      <div class="col-12">
-        <ul id="locations-list" class="list-group">
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div id="map" class="col-md-8"></div>
-  <script type="text/javascript" src="js/globalVars.js"></script>
-  <script defer type="text/javascript" src="js/initMap.min.js"></script>
-  <script defer type="text/javascript" src="js/locationsList.min.js"></script>
-  <script defer
-  src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&key=YOUR_KEY&callback=initMap"></script>
-</body>
+    </aside>
+    <div id="map" class="col-md-8"></div>
+
+    <script src="js/globalVars.js"></script>
+    <script defer src="js/initMap.js"></script>
+    <script defer src="js/locationsList.js"></script>
+    <script async src="js/mvvm-knockout.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places&key=YOUR_KEY"></script>
+  </body>
 </html>
