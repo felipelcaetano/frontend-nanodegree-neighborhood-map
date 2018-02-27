@@ -15,18 +15,11 @@
 Ao carregar o mapa, são exibidas 6 localizações de parques pré-definidas pelo sistema. 
 Todas as localizações são de parques da cidade de São Paulo e trazem detalhes sobre os parques, unindo informações do Google e do Foursquare.
 
-É possível navegar entre as opções, selecionando-as na lista oferecida ou clicando em seus marcadores diretamente no mapa. Ao selecionar um dos parques, alguns detalhes serão exibidos em uma janela de informações, acima de seu marcador.
+É possível navegar entre as opções, selecionando-as na lista oferecida ou clicando em seus marcadores diretamente no mapa. Ao selecionar um dos parques, alguns detalhes serão exibidos em uma janela de informações, acima de seu marcador e a lista sera filtrada, para aparecer somente o parque selecionado.
 
-##### A Busca
-
-Caso você não se interesse pelas opções disponíveis, é possível pesquisar outras opções de parques no estado de São Paulo.
-Após digitar o nome que procura, uma lista com possíveis localizações irá aparecer em uma janela abaixo do campo digitado. Selecione a opção digitada que o sistema te levará até a localização do parque, com seus detalhes sendo exibidos em sua janela de informações.
-
-**Lembre-se! A busca funciona apenas para parques localizados no estado de São Paulo.**
+Para que a lista retorne ao seu estado inicial, com todos os parques disponíveis para seleção, é necessário clicar no botão **Limpar Filtros**.
 
 #### Problemas Conhecidos
-
-**Pesquisa de parques:** Alguns parques não estão classificados como o tipo *Parque* nos sistemas do Google, impossibilitando ecnontrá-los no mapa e obter seus detalhes após sua seleção.
 
 
 **Detalhes dos parques pré-selecionados:** Existe um limite de requisições diárias que é possível fazer as APIs do Foursquare, podendo ocasionar na exibição de menos informações sobre os parques.
