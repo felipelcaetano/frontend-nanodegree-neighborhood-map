@@ -174,23 +174,10 @@ function initMap() {
     markers.push(marker);
 
     addMarkerListener(marker);
-    /*marker.addListener('click', function(){
-      clearInfowindow();
-      populateInfoWindow(this, largeInfoWindow);
-    });*/
-
-    /*
-    marker.addListener('mouseover', function(){
-      this.setIcon(hihgLightedIcon);
-    });
-
-    marker.addListener('mouseout', function(){
-      this.setIcon(defaultIcon);
-    });*/
   });
 
   listLocations();
-  autocomplete();
+  //autocomplete();
 };
 
 var addMarkerListener = function(marker) {
@@ -324,9 +311,9 @@ function populateInfoWindow(marker, infowindow) {
 
         if (place.photos) {
           innerHTML += '<br><br>';
-          innerHTML += '<img class="img-responsive" src="' +
+          innerHTML += '<img class="img-responsive" alt="foto do parque" src="' +
             place.photos[0].getUrl({maxHeight: 100, maxWidth: 120}) + '">';
-          innerHTML += '<img class="img-responsive" src="' +
+          innerHTML += '<img class="img-responsive" alt="foto do parque" src="' +
             place.photos[1].getUrl({maxHeight: 100, maxWidth: 120}) + '">';
         };
 
@@ -336,7 +323,9 @@ function populateInfoWindow(marker, infowindow) {
 
       } else {
 
-        infowindow.setContent(infowindow.content + '</div>');
+        infowindow.setContent(infowindow.content + '<p>Não foi possível obter ' +
+          'maiores detalhes no Google. Atualize a página para tentar novamente' +
+          '</p></div>');
       };
     });
 
@@ -344,6 +333,7 @@ function populateInfoWindow(marker, infowindow) {
 
     infowindow.addListener('closeclick', function() {
       resetMarkersIcons();
+      showMarkers();
 
       infowindow.marker = null;
     });
@@ -359,20 +349,6 @@ function resetMarkersIcons() {
   });
 };
 
-function searchPark(autocomplete) {
-  //var distanceMatrixService = new google.maps.DistanceMatrixService;
-  var address = document.getElementById('autocomplete-box').value;
-  var place = autocomplete.getPlace();
-
-  if (address == '') {
-    window.alert('Digite o nome do parque que procura');
-  } else {
-
-    resetMarkersIcons();
-
-    markers.forEach(function(marker, index) {
-      clearInfowindow(marker);
-    });
-  };
-
+function centerMap() {
+  map.setCenter({lat: -23.55052, lng: -46.633309});
 };

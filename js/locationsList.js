@@ -1,24 +1,3 @@
-//Adiciona os listeners do botao de dropdown da lista de locations
-faAngleDownListener();
-
-function faAngleDownListener() {
-    $('.fa-angle-down').click(function(){
-        $('.fa-angle-down').addClass('fa-angle-up');
-        $('.fa-angle-down').removeClass('fa-angle-down');
-
-        faAngleUpListener();
-    });
-};
-
-function faAngleUpListener() {
-    $('.fa-angle-up').click(function(){
-        $('.fa-angle-up').addClass('fa-angle-down');
-        $('.fa-angle-up').removeClass('fa-angle-up');
-
-        faAngleDownListener();
-    });
-};
-
 function listLocations() {
 
     var locationsListNode = $('#locations-list');
@@ -74,18 +53,17 @@ function listLocations() {
 
                 $('#locations-list li:last-of-type').after('</div></li>');
 
-                //Adiciona listener para click em cada item da lista
-                $('#locations-list li:last-of-type').click(function(){
-                    populateWindowByMarker(location)
-                });
-
                 obterDadosFS(location);
+                $('#locations-list li:last-of-type').click(function(){
+                    populateWindowByMarker(location);
+                });
 
             } else {
                 console.log('Erro Place Service:');
                 console.log(status);
                 window.alert('Ocorreu um erro ao tentar obter as informações. ' +
                     'Tente mais tarde.');
+                return;
             };
         });
     });
@@ -94,12 +72,15 @@ function listLocations() {
 //Popula a infowindow do local selecionado pela lista
 function populateWindowByMarker(location) {
 
+    atualizarSetaMenu();
+    hideLocations(location);
     //Verifica se existe infowindow em algum marcador aberto
     if (activeInfowindow.marker != null) {
         clearInfowindow(activeInfowindow.marker);
     };
 
     resetMarkersIcons();
+    hideMarkers();
 
     markers.forEach(function(marker, index) {
 
@@ -107,14 +88,27 @@ function populateWindowByMarker(location) {
             var largeInfoWindow = new google.maps.InfoWindow();
 
             marker.setIcon(hihgLightedIcon);
+            marker.setVisible(true);
             populateInfoWindow(marker, largeInfoWindow);
 
             map.setCenter(location.location);
         };
     });
+};
 
-    //Ativa novamente o listener da seta do inicio da pagina
-    faAngleUpListener();
+function hideLocations(locationParm) {
+    locations.forEach(function(location, index){
+        if (locationParm.id != location.id) {
+            $('[data-id="' + location.id +
+                '"]').css("display", "none");
+        };
+    });
+};
+
+function showLocations() {
+    locations.forEach(function(location, index){
+        $('[data-id="' + location.id + '"]').css("display", "block");
+    });
 };
 
 function obterDadosFS(location) {
@@ -166,6 +160,8 @@ function obterDadosFS(location) {
             $('[data-id="'+location.id+'"] .fs-description-div').hide();
             console.log('Code: ' + result.responseJSON.meta.code + '. Msg: ' +
                 result.responseJSON.meta.errorDetail);
+            window.alert('Tentamos obter algumas informações no Foursquare, ' +
+                'porém ocorreu um erro inesperado. Tente retornar mais tarde.');
         },
         complete: function(result) {
             $('[data-id="'+location.id+'"] .fa-spinner').detach();
