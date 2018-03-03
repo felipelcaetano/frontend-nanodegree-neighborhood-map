@@ -1,4 +1,3 @@
-
 function initMap() {
   activeInfowindow = new google.maps.InfoWindow();
 
@@ -55,106 +54,6 @@ function initMap() {
     styles: styles,
     mapTypeControl: false
   });
-
-  //Lista Inicial de parques
-  locations = [
-    {
-      title: 'Parque do Carmo',
-      location: {
-        lat:  -23.581743, lng:-46.462333
-      },
-      id: 'ChIJLV_w3EBmzpQR6vhaUW-n6oE',
-      fS: {
-        id: '4c922c4db641236ab9868779',
-        address: '',
-        likes: 0
-      }
-    },
-    {
-      title: 'Parque Ibirapuera',
-      location: {
-        lat:  -23.584843, lng:-46.655913
-      },
-      id: 'ChIJoyYcqfFZzpQRWi4itrx_1V8',
-      fS: {
-        id: '4b0588c7f964a520d9d922e3',
-        address: '',
-        likes: 0
-      }
-    },
-    {
-      title: 'Parque do Povo',
-      location: {
-        lat:  -23.588037, lng:-46.68873
-      },
-      id: 'ChIJubUPZ0BXzpQRACod7iNucDE',
-      fS: {
-        id: '4b23d4ddf964a520b75a24e3',
-        address: '',
-        likes: 0
-      }
-    },
-    {
-      title: 'Parque da Juventude',
-      location: {
-        lat:  -23.5072, lng:-46.620408
-      },
-      id: 'ChIJ7QRNOyf2zpQRCDpCF99XpJ4',
-      fS: {
-        id: '4ba6c93df964a520966f39e3',
-        address: '',
-        likes: 0
-      }
-    },
-    {
-      title: 'CERET',
-      location: {
-        lat:  -23.556052, lng:-46.559332
-      },
-      id: 'ChIJOUPLL4BezpQR9KUzQawAvpo',
-      fS: {
-        id: '4b8ae47bf964a5209a8732e3',
-        address: '',
-        likes: 0
-      }
-    },
-    {
-      title: 'Parque Villa-Lobos',
-      location: {
-        lat:  -23.545783, lng:-46.720578
-      },
-      id: 'ChIJfV4al_pWzpQR0a3ayQ6Oa28',
-      fS: {
-        id: '4d440dad14aa8cfaf0e1613d',
-        address: '',
-        likes: 0
-      }
-    },
-    {
-      title: 'Parque Piqueri',
-      location: {
-        lat:  -23.529612, lng:-46.575581
-      },
-      id: 'ChIJT4t6sd9ezpQRI3XzArVFOsg',
-      fS: {
-        id: '4c38b93d0a71c9b6412d41c9',
-        address: '',
-        likes: 0
-      }
-    },
-    {
-      title: 'Horto Florestal',
-      location: {
-        lat:  -23.456003, lng:-46.629819
-      },
-      id: 'ChIJZ-Ygoh33zpQRel7Y6UK0iF0',
-      fS: {
-        id: '4b284eb3f964a520529224e3',
-        address: '',
-        likes: 0
-      }
-    }
-  ];
 
   //Cria os markers para cada location
   locations.forEach(function(location, index) {
@@ -349,6 +248,11 @@ function resetMarkersIcons() {
   });
 };
 
-function centerMap() {
-  map.setCenter({lat: -23.55052, lng: -46.633309});
+function centerMap(latLng) {
+  map.setCenter(latLng);
+};
+
+function googleError() {
+  window.alert("Desculpe. Houve um problema no site e não será possível " +
+    "utilizá-lo no momento. Tente novamente mais tarde.");
 };

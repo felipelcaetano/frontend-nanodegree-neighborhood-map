@@ -12,7 +12,8 @@ function listLocations() {
             if (status === 'OK') {
 
                 locationsListNode.append('<li class="list-group-item ' +
-                    'bg-success" data-id="' + location.id + '"> ');
+                    'bg-success" data-id="' + location.id + '"' +
+                    'data-bind="click: location.populateWindowByMarker">');
 
                 if (place.photos) {
                     $('#locations-list li:last-of-type').append(
