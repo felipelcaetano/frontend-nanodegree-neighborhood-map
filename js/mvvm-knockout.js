@@ -214,10 +214,6 @@ var ViewModel = function() {
             marker.setVisible(false);
         });
     };
-
-
-
-
 };
 
 ko.applyBindings(new ViewModel());

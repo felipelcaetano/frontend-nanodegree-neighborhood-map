@@ -1,4 +1,6 @@
 function initMap() {
+  console.log('Iniciando carregamento')
+
   activeInfowindow = new google.maps.InfoWindow();
 
   var styles = [
