@@ -12,7 +12,8 @@ function listLocations() {
             if (status === 'OK') {
 
                 locationsListNode.append('<li class="list-group-item ' +
-                    'bg-success" data-id="' + location.id + '"> ');
+                    'bg-success" data-id="' + location.id + '"' +
+                    'data-bind="click: location.populateWindowByMarker">');
 
                 if (place.photos) {
                     $('#locations-list li:last-of-type').append(
@@ -158,10 +159,10 @@ function obterDadosFS(location) {
         error: function(result) {
             $('[data-id="'+location.id+'"] .fs-likes-div').hide();
             $('[data-id="'+location.id+'"] .fs-description-div').hide();
-            console.log('Code: ' + result.responseJSON.meta.code + '. Msg: ' +
-                result.responseJSON.meta.errorDetail);
             window.alert('Tentamos obter algumas informações no Foursquare, ' +
                 'porém ocorreu um erro inesperado. Tente retornar mais tarde.');
+            console.log('Code: ' + result.responseJSON.meta.code + '. Msg: ' +
+                result.responseJSON.meta.errorDetail);
         },
         complete: function(result) {
             $('[data-id="'+location.id+'"] .fa-spinner').detach();
